@@ -1,12 +1,15 @@
 # MetaSelector.js
-元数据选择器。当前项目为 `javascript` 实现, `java` 实现去往这里。
+元数据选择器。当前项目为 `javascript` 实现。
+- `java` 实现去往这里。
+- 构建文档
+- 使用文档
 
 用于文件、笔记、物体筛选，服务器规划、微服务调度等众多领域。 规则参考了 CSS 属性选择器，JQuery 属性选择器。便于生成、书写，便于解析、识别，也便于执行。
 
 
 元数据以属性(attribute) 和值 (value) 的形式描述，包裹在 `[]` 之中。
 
-## 选择器
+## 基本选择器
 - `[attribute]` 包含某个属性
 - `[attribute=undefined]` 不包含某个属性
 - `[attribute=value]` 属性等于某值
@@ -30,6 +33,13 @@
 - `undefined` 表示不存在， 字符串 `undefined` 也等于不存在。
 - 空格（其他空白字符）不是特殊符号，按照其原本的样子匹配，属性和值都可以以空白开头和结尾，书写时请注意避免不必要的空白。
 
+
+## 数值选择器
+- `[attribute==number]` 属性等于某值
+- `[attribute>number]` 属性大于某值
+- `[attribute>=number]` 属性大于等于某值
+- `[attribute<number]` 属性小于某值
+- `[attribute<=number]` 属性小于等于某值
 
 
 ## 组合筛选器
