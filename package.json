@@ -2,9 +2,9 @@
   "name": "metaselector",
   "version": "1.0.0",
   "description": "元数据选择器。当前项目为 `javascript` 实现",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "browserify -e src/index.js -s MetaSelector -o dist/index.js"
   },
   "repository": {
     "type": "git",

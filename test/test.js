@@ -1,5 +1,6 @@
 const {expect, assert} = require('chai');
-const Selector = require('../src/index')
+const Selector = require('../dist/index')
+const {stringify} = require("mocha/lib/utils");
 
 
 describe('match 正向测试 包含某个属性 1',function(){
@@ -128,15 +129,15 @@ describe('match 匹配 5',function(){
 
     });
 
-    it('Selector 5-3 |=',function(){
+    it('Selector 5-3 -=',function(){
 
-        assert( Selector.match("[test|=t]", { test : "t-test" }) )
+        assert( Selector.match("[test-=t]", { test : "t-test" }) )
 
     });
 
-    it('Selector 5-4 |=',function(){
+    it('Selector 5-4 -=',function(){
 
-        assert( ! Selector.match("[test|=t]", { test : "test" }) )
+        assert( ! Selector.match("[test-=t]", { test : "test" }) )
 
     });
 
@@ -194,4 +195,57 @@ describe('match 匹配 5',function(){
 
     });
 
+});
+
+
+
+describe('match 匹配 6',function(){
+    it('Selector 6-1 |=',function(){
+
+        assert( Selector.match("[test|=vue]", { test : "test,vue,xxx" }) )
+
+    });
+
+    it('Selector 6-2 |=',function(){
+
+        assert( Selector.match("[test|=vue]", { test : "vue,xxx" }) )
+
+    });
+
+    it('Selector 6-3 |=',function(){
+
+        assert( Selector.match("[test|=vue]", { test : "xxx,vue" }) )
+
+    });
+
+    it('Selector 6-4 |=',function(){
+
+        assert( Selector.match("[test|=vue]", { test : "vue" }) )
+
+    });
+
+    it('Selector 6-5 |=',function(){
+
+        assert( ! Selector.match("[test|=vue]", { test : "vue-1" }) )
+
+    });
+
+    it('Selector 6-6 |=',function(){
+
+        assert( ! Selector.match("[test|=vue]", { test : "eee,vue-1" }) )
+
+    });
+
+
+    it('Selector 6-7 |=',function(){
+
+        assert( ! Selector.match("[test|=vue]", { test : "" }) )
+
+    });
+
+    it('Selector 6-7 |=',function(){
+
+        assert( ! Selector.match("[test|=vue]", {  }) )
+
+    });
 });
